@@ -263,12 +263,32 @@ print(Ohtani_4_14_22)
 ggarrange(Ohtani_4_7_22, Ohtani_4_14_22,nrow = 1, ncol = 2)
 
 # Create a bar chart for the distribution of Pitch Type
+
+#4/7/22
+SO_4_7_22 <- Ohtani_2_22 %>%
+  filter(game_date == "4/7/2022") %>%
+  ggplot(aes(x = `Pitch Type`, fill = stand)) +
+  geom_bar(position = "dodge", width = 0.5) +
+  labs(
+    title = "Ohtani K's by Pitch Type by Batter Handedness 4/7/22",
+    x = "Pitch Type",
+    y = "Count"
+  ) +
+  scale_fill_manual(values = c("R" = "blue", "L" = "red")) +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+
+print(SO_4_7_22)
+
+
+
+#4/14/22
 SO_4_14_22 <- Ohtani_2_22 %>%
   filter(game_date == "4/14/2022") %>%
   ggplot(aes(x = `Pitch Type`, fill = stand)) +
   geom_bar(position = "dodge", width = 0.5) +
   labs(
-    title = "K's by Pitch Type by Batter Handedness",
+    title = "Ohtani K's by Pitch Type by Batter Handedness 4/14/22",
     x = "Pitch Type",
     y = "Count"
   ) +
@@ -277,6 +297,10 @@ SO_4_14_22 <- Ohtani_2_22 %>%
   theme(legend.title = element_blank())
 
 print(SO_4_14_22)
+
+
+#Combines both charts
+ggarrange(SO_4_7_22, SO_4_14_22,nrow = 1, ncol = 2)
 
 
 # Filter the data for 'stand' = 'R' and create a bar chart for strikeouts by batter hand & pitch type
@@ -355,13 +379,6 @@ ggplot(SO_pitch_pct, aes(x = "", y = Percentage, fill = `Pitch Type`, label = sc
        fill = "Pitch Type") +
   theme_void() +
   theme(legend.position = "right") 
-
-
-
-
-
-
-
 
 
 
@@ -540,7 +557,7 @@ SO_3_30_23 <- Ohtani_2_23 %>%
   ggplot(aes(x = `Pitch Type`, fill = stand)) +
   geom_bar(position = "dodge", width = 0.5) +
   labs(
-    title = "K's by Pitch Type by Batter Handedness",
+    title = "Ohtani K's by Pitch Type by Batter Handedness",
     x = "Pitch Type",
     y = "Count"
   ) +
@@ -597,12 +614,14 @@ ggarrange(Ohtani_3_30_23, Ohtani_4_5_23,nrow = 1, ncol = 2)
 
 
 # Create a bar chart for the distribution of Pitch Type
+
+#4/5/23
 SO_4_5_23 <- Ohtani_2_23 %>%
   filter(game_date == "4/5/2023") %>%
   ggplot(aes(x = `Pitch Type`, fill = stand)) +
   geom_bar(position = "dodge", width = 0.5) +
   labs(
-    title = "K's by Pitch Type by Batter Handedness",
+    title = "Ohtani K's by Pitch Type by Batter Handedness",
     x = "Pitch Type",
     y = "Count"
   ) +
@@ -611,6 +630,11 @@ SO_4_5_23 <- Ohtani_2_23 %>%
   theme(legend.title = element_blank())
 
 print(SO_4_5_23)
+
+
+
+#Combines both charts
+ggarrange(SO_3_30_23, SO_4_5_23,nrow = 1, ncol = 2)
 
 
 # Filter the data for 'stand' = 'R' and create a bar chart for strikeouts by batter hand & pitch type
